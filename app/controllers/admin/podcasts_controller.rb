@@ -26,7 +26,7 @@ class Admin::PodcastsController < ApplicationController
   def update
     @podcast = Podcast.find( params[:id] )
 
-    if @podcast.save
+    if @podcast.save( podcast_params )
       render :edit
       flash.now[:success] = "You updated your post."
     else
