@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   root to: "pages#about"
 
+  resources :posts
+
+  resources :podcasts
+
   get "/news",
     to: "pages#news",
     as: :news_path
@@ -25,5 +29,11 @@ Rails.application.routes.draw do
   get "/contact",
     to: "pages#contact",
     as: :contact_path
+
+  namespace :admin do
+    resources :posts
+
+    resources :podcasts
+  end
 
 end
