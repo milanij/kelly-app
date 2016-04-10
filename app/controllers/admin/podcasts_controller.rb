@@ -1,4 +1,5 @@
 class Admin::PodcastsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @podcasts = Podcast.all.order( "created_at DESC" )
   end
@@ -8,9 +9,9 @@ class Admin::PodcastsController < ApplicationController
   end
 
   def create
-    @podcast = Podcast.new
+    @podcast = Podcast.new( podcast_params )
 
-    if @podcast.create( podcast_params )
+    if @podcast.save
       render :new
       flash.now[:success] = "You created your podcast."
     else

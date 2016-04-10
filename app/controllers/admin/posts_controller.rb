@@ -1,5 +1,5 @@
 class Admin::PostsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @posts = Post.all.order( "created_at DESC" )
   end
@@ -9,10 +9,10 @@ class Admin::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
+    @post = Post.new(post_params)
 
-    if @post.create(post_params)
-      render :new
+    if @post.save
+      render :index
       flash.now[:success] = "You created your post."
     else
       render :new
@@ -28,8 +28,10 @@ class Admin::PostsController < ApplicationController
     @post = Post.find( params[:id] )
 
     if @post.save(post_params)
-      render :edit
-      flash.now[:success] = "You updated your post."
+      redirect_to(
+        admin_posts_path,
+        flash: { success: "You updated your post." }
+      )
     else
       render :edit
       flash.now[:error] = "Something went wrong! Try again."

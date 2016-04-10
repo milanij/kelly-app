@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.text :description
       t.text :title
       t.boolean :visible
+      t.timestamps
     end
   end
 end

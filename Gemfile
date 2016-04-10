@@ -11,6 +11,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
+gem 'foreman', '~> 0.78'
+gem 'awesome_print', '~> 1.6'
 
 gem 'turbolinks', '~> 5.x'
 
