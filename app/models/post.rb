@@ -16,4 +16,10 @@ class Post < ActiveRecord::Base
                                     content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :secondary_image,
                                     content_type: /\Aimage\/.*\Z/
+
+# validates :body,
+#           # :main_image,
+#           :published_date,
+#           :title,
+#           presence: true
 end

@@ -12,12 +12,23 @@ class Admin::PodcastsController < ApplicationController
     @podcast = Podcast.new( podcast_params )
 
     if @podcast.save
-      render :new
-      flash.now[:success] = "You created your podcast."
+      redirect_to(
+        admin_podcasts_path,
+        flash: {
+          success: "You created the \"#{@podcast.title}\" podcast. "
+        }
+      )
     else
       render :new
       flash.now[:error] = "Something went wrong! Try again."
     end
+  end
+
+  def show
+    @podcast = Podcast.find( params[:id] )
+    redirect_to(
+      edit_admin_podcast_path( @podcast )
+    )
   end
 
   def edit
@@ -27,9 +38,13 @@ class Admin::PodcastsController < ApplicationController
   def update
     @podcast = Podcast.find( params[:id] )
 
-    if @podcast.save( podcast_params )
-      render :edit
-      flash.now[:success] = "You updated your post."
+    if @podcast.update( podcast_params )
+      redirect_to(
+        admin_podcasts_path,
+        flash: {
+          success: "You updated the \"#{@podcast.title}\" podcast. "
+        }
+      )
     else
       render :edit
       flash.now[:error] = "Something went wrong! Try again."
@@ -40,9 +55,10 @@ class Admin::PodcastsController < ApplicationController
 
   def podcast_params
     params.require( :podcast ).permit(
-      :date,
       :description,
       :main_image,
+      :recording,
+      :release_date,
       :secondary_image,
       :title,
       :visible

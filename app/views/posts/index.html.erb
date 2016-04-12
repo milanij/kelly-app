@@ -1,7 +1,22 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12 pull-left">
+      <h1 class="text-center">The Tao of Comedy</h1>
+      <h2>Hosted by:</h2>
+      <h2>Kelly MacLean</h2>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-12">
-
+      <% @posts.each do |post| %>
+        <% if post.visible? %>
+          <h3><%= link_to post.title, post_path( post.id ) %></h3>
+          <br>
+          <p><%= post.description %></p>
+          <br>
+          <p><%= post.published_date.strftime( "%m/%d/%y" ) %></p>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

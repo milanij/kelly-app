@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h3>Podcasts:</h3>
+    <div class="col-md-12 text-center">
+      <h1>Podcasts:</h1>
     </div>
     <div class="col-md-12">
       <% @podcasts.each do |podcast| %>
         <div class="admin-podcast">
           <h2><%= link_to podcast.title, edit_admin_podcast_path( podcast.id ) %></h2>
+          <p>Released: <%= podcast.release_date.strftime( "%m/%d/%y" ) %></p>
           <p><%= podcast.description %></p>
           <p>
             Is this podcast visible to the public?

@@ -12,12 +12,23 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render :index
-      flash.now[:success] = "You created your post."
+      redirect_to(
+        admin_posts_path,
+        flash: {
+          success: "You created the \"#{@post.title}\" post. "
+        }
+      )
     else
       render :new
       flash.now[:error] = "Something went wrong! Try again."
     end
+  end
+
+  def show
+    @post = Post.find( params[:id] )
+    redirect_to(
+      admin_edit_post_path( @post )
+    )
   end
 
   def edit
@@ -27,10 +38,12 @@ class Admin::PostsController < ApplicationController
   def update
     @post = Post.find( params[:id] )
 
-    if @post.save(post_params)
+    if @post.update(post_params)
       redirect_to(
         admin_posts_path,
-        flash: { success: "You updated your post." }
+        flash: {
+          success: "You created the \"#{@post.title}\" post. "
+        }
       )
     else
       render :edit
@@ -43,7 +56,8 @@ class Admin::PostsController < ApplicationController
   def post_params
     params.require( :post ).permit(
       :body,
-      :date,
+      :description,
+      :published_date,
       :main_image,
       :secondary_image,
       :title,

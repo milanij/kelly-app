@@ -1,7 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-
+      <%= link_to "&larr; Back to Podcasts".html_safe, podcasts_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @podcast.title %></h1>
+      <br>
+      <p><%= @podcast.description %></p>
+      <br>
+      <p><%= @podcast.release_date %></p>
     </div>
   </div>
 </div>

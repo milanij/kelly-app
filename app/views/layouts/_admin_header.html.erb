@@ -4,9 +4,16 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <ul class="nav navbar-nav pull-left">
-            <%= link_to "Homepage", root_path %> |
-            <%= link_to "Create a Podcast", new_admin_podcast_path %> |
-            <%= link_to "Create a Post", new_admin_post_path %>
+            <li><%= link_to "Podcasts", admin_podcasts_path %></li>
+            <li><%= link_to "Posts", admin_posts_path %></li>
+            <li><%= link_to "Create a Podcast", new_admin_podcast_path %></li>
+            <li><%= link_to "Create a Post", new_admin_post_path %></li>
+            <% if post? %>
+              <li><%= link_to "Edit Post", edit_admin_post_path( @post ) %></li>
+            <% end %>
+            <% if podcast? %>
+              <li><%= link_to "Edit Podcast", edit_admin_podcast_path( @podcast ) %></li>
+            <% end %>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li class="dropdown">

@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :prep_4_mobile
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :prep_4_mobile
 
   def verify_admin
     if !current_user.admin?
@@ -32,7 +31,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_user.admin?
-      return admin_podcasts_path
+      admin_podcasts_path
+    else
+      root_path
     end
   end
 end

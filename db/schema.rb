@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410002514) do
+ActiveRecord::Schema.define(version: 20160412003722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "podcasts", force: :cascade do |t|
-    t.datetime "date"
+    t.datetime "release_date"
     t.text     "description"
     t.text     "title"
     t.boolean  "visible"
@@ -31,11 +31,15 @@ ActiveRecord::Schema.define(version: 20160410002514) do
     t.string   "secondary_image_content_type"
     t.integer  "secondary_image_file_size"
     t.datetime "secondary_image_updated_at"
+    t.string   "recording_file_name"
+    t.string   "recording_content_type"
+    t.integer  "recording_file_size"
+    t.datetime "recording_updated_at"
   end
 
   create_table "posts", force: :cascade do |t|
     t.text     "body"
-    t.datetime "date"
+    t.datetime "published_date"
     t.text     "description"
     t.text     "title"
     t.boolean  "visible"
