@@ -1,0 +1,36 @@
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="<%= ENV[ 'FACEBOOK_APP_ID' ] %>" />
+<meta property="og:site_name" content="The Tao of Comedy" />
+<% if post? %>
+  <meta
+    property="og:title"
+    content="<%= @post.title + ' -- The Tao of Comedy' %>"
+  />
+  <meta property="og:description" content="<%=
+    @post.description
+  %>" />
+  <meta property="og:image" content="<%=
+    @post.main_image.url(:large)
+  %>"/>
+<% elsif podcast? %>
+  <meta
+    property="og:title"
+    content="<%= @podcast.title + ' -- The Tao of Comedy' %>"
+  />
+  <meta property="og:description" content="<%=
+    @podcast.description
+  %>" />
+  <meta property="og:image" content="<%=
+    @podcast.main_image.url(:large)
+  %>"/>
+<% else %>
+  <meta
+    property="og:title"
+    content="<%= 'The Tao of Comedy' %>"
+  />
+  <meta property="og:description" content="Kelly MacLean's podcast -- The Tao of Comedy" />
+  <meta property="og:image" content="Need to put in image here."/>
+<% end %>
+<meta property="og:url" content="<%=
+  '#{request.protocol}#{request.host_with_port}#{request.fullpath}'
+%>" />

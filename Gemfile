@@ -9,13 +9,16 @@ gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 5.0'
 gem 'paperclip', '~> 5.0.0.beta1'
 gem 'aws-sdk', '>= 2.0.34'
 gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
 gem 'foreman', '~> 0.78'
 gem 'awesome_print', '~> 1.6'
+gem 'font-awesome-rails', '~> 4.4'
 
-gem 'turbolinks', '~> 5.x'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 gem 'jbuilder', '~> 2.0'
 

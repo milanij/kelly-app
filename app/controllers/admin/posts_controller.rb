@@ -19,8 +19,10 @@ class Admin::PostsController < ApplicationController
         }
       )
     else
+      errors = @post.errors.full_messages.join(", ")
+      flash.now[:error] = "Something went wrong!\n"\
+                          "Check these: #{errors}"
       render :new
-      flash.now[:error] = "Something went wrong! Try again."
     end
   end
 
@@ -46,8 +48,10 @@ class Admin::PostsController < ApplicationController
         }
       )
     else
+      errors = @post.errors.full_messages.join(", ")
+      flash.now[:error] = "Something went wrong!\n"\
+                          "Check these: #{errors}"
       render :edit
-      flash.now[:error] = "Something went wrong! Try again."
     end
   end
 

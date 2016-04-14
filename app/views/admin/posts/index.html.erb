@@ -9,9 +9,7 @@
           <h2><%= link_to post.title, edit_admin_post_path( post.id ) %></h2>
           <p><%= post.body %></p>
           <p>
-            Is this post visible to the public?
-            <br>
-            <%= post.visible? ? "YES" : "NO" %>
+            Visible to public? <%= nice_boolean( post.visible? ) %>
           </p>
           <br>
         </div>

@@ -5,59 +5,91 @@
         @post.new_record? ?
           {} : { url: admin_post_path( @post.id ) } ) do |f|
     %>
-      <%= link_to "&larr; Back to Posts".html_safe, admin_podcasts_path %>
-      <% if @post.new_record? %>
-        <h2>Create a new post:</h2>
-      <% else %>
-        <h2>Update "<%= @post.title %>":</h2>
-      <% end %>
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :body %>
-        <%= f.text_area :body, rows: 10, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, rows: 2, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :main_image %>
-        <% if @post.main_image.file? %>
-        <%= image_tag @post.main_image.url( :thumb ) %><br/>
-        <% end %>
-        <%= f.file_field :main_image %>
-      </div>
-      <div class="form-group">
-        <%= f.label :secondary_image %>
-        <% if @post.secondary_image.file? %>
-        <%= image_tag @post.secondary_image.url( :thumb ) %><br/>
-        <% end %>
-        <%= f.file_field :secondary_image %>
-      </div>
-      <div class="form-group">
-        <%= f.label :published_date %>
-        <%= f.text_field :published_date, class: "form-control datepicker" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :visible %>
-        <%= f.check_box :visible, class: "form-control" %>
-      </div>
-      <div class="form-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <% if @post.new_record? %>
-          <%= f.submit( "Create new Post" ) %>
+          <h2>Create a new post:</h2>
         <% else %>
-          <%= f.submit( "Update Post" ) %>
+          <h2>Update "<%= @post.title %>":</h2>
         <% end %>
+        <%= link_to "&larr; Back to Posts".html_safe, admin_posts_path %>
       </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form-group">
+              <%= f.label :title %>
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :body %>
+              <%= f.text_area :body, rows: 10, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description %>
+              <%= f.text_area :description, rows: 2, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.label :main_image %>
+              <% if @post.main_image.file? %>
+              <%= image_tag @post.main_image.url( :thumb ) %><br/>
+              <% end %>
+              <%= f.file_field :main_image %>
+            </div>
+            <div class="form-group">
+              <%= f.label :secondary_image %>
+              <% if @post.secondary_image.file? %>
+              <%= image_tag @post.secondary_image.url( :thumb ) %><br/>
+              <% end %>
+              <%= f.file_field :secondary_image %>
+            </div>
+            <div class="form-group">
+              <%= f.label :published_date %>
+              <%= f.text_field(
+                  :published_date,
+                  class: "form-control",
+                  id: "datepicker",
+                  value: (
+                    @post.published_date.blank? ?
+                      '' : @post.published_date.strftime( '%Y-%m-%d %l:%M %p' )
+                  )
+              ) %>
+            </div>
+            <div class="form-group">
+              <%= f.label :visible %>
+              <%= f.check_box :visible, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="form-group">
+            <% if @post.new_record? %>
+              <%= f.submit(
+                  "Create new Post",
+                  class: "btn btn-bg btn-primary"
+              ) %>
+            <% else %>
+              <%= f.submit(
+                  "Update Post",
+                  class: "btn btn-bg btn-primary"
+              ) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
 
 <script type="text/javascript">
-$(function() {
-  $( ".datepicker" ).datepicker();
+$(document).ready( function () {
+  $( "#datepicker" ).datetimepicker({
+    dateFormat: 'yy-mm-dd',
+    timeFormat: 'hh:mm tt',
+    minDate: new Date(2010, 1, 1)
+  });
 });
 </script>

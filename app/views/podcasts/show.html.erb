@@ -5,12 +5,71 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-5">
       <h1><%= @podcast.title %></h1>
+      <br>
+      <% if @podcast.recording.file? %>
+        <%= render partial: "layouts/jplayer", locals: { podcast: @podcast } %>
+      <% end %>
+      <br>
+      <p>Release Date: <%= @podcast.release_date.strftime( "%m/%d/%y" ) %></p>
       <br>
       <p><%= @podcast.description %></p>
       <br>
-      <p><%= @podcast.release_date %></p>
+      <ul class="list-inline social-links">
+        <li>
+          <a class="facebook-btn" href="#">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+        <li>|</li>
+        <li>
+          <a
+            class="twitter-btn"
+            href="https://twitter.com/share?text=<%= @podcast.title %>%20on%20The%20Tao%20of%20Comedy&url=<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>&hashtags=<%= @podcast.hashtag %>"
+          >
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li>|</li>
+        <li>
+          <a
+            class="mail-btn"
+            href="mailto:?subject=The%20Tao%20of%20Comedy&body=Check%20out%20this%20podcast%0A%0A<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-7">
+      <div class="podcast-main-img">
+        <% if @podcast.main_image.present? %>
+          <%= image_tag @podcast.main_image.url( :large ) %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  <% if @podcast.recording.file? %>
+    $(document).ready( function () {
+      $("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+          $(this).jPlayer("setMedia", {
+            mp3: "<%= @podcast.recording.url %>"
+          });
+        },
+        title: "<%= @podcast.title %>",
+        swfPath: "/js",
+        supplied: "mp3",
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true,
+        remainingDuration: true,
+        toggleDuration: true
+      });
+    });
+  <% end %>
+</script>

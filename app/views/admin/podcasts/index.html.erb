@@ -6,13 +6,15 @@
     <div class="col-md-12">
       <% @podcasts.each do |podcast| %>
         <div class="admin-podcast">
-          <h2><%= link_to podcast.title, edit_admin_podcast_path( podcast.id ) %></h2>
+          <h2><%= link_to(
+                  podcast.title,
+                  edit_admin_podcast_path( podcast.id )
+              ) %>
+          </h2>
           <p>Released: <%= podcast.release_date.strftime( "%m/%d/%y" ) %></p>
           <p><%= podcast.description %></p>
           <p>
-            Is this podcast visible to the public?
-            <br>
-            <%= podcast.visible? ? "YES" : "NO" %>
+            Visible to public? <%= nice_boolean( podcast.visible? ) %>
           </p>
           <br>
         </div>

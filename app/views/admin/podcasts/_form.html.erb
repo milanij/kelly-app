@@ -5,60 +5,122 @@
         @podcast.new_record? ?
           {} : { url: admin_podcast_path( @podcast.id ) } ) do |f|
     %>
-      <%= link_to "&larr; Back to Podcasts".html_safe, admin_podcasts_path %>
-      <% if @podcast.new_record? %>
-        <h2>Create a new podcast:</h2>
-      <% else %>
-        <h2>Update "<%= @podcast.title %>":</h2>
-      <% end %>
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, rows: 10, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :main_image %>
-        <% if @podcast.main_image.file? %>
-        <%= image_tag @podcast.main_image.url( :thumb ) %><br/>
-        <% end %>
-        <%= f.file_field :main_image %>
-      </div>
-      <div class="form-group">
-        <%= f.label :secondary_image %>
-        <% if @podcast.secondary_image.file? %>
-        <%= image_tag @podcast.secondary_image.url( :thumb ) %><br/>
-        <% end %>
-        <%= f.file_field :secondary_image %>
-      </div>
-      <div class="form-group">
-        <%= f.label :release_date %>
-        <%= f.text_field(
-              :release_date,
-              class: "form-control datepicker",
-              placeholder: "Click to select date"
-            )
-        %>
-      </div>
-      <div class="form-group">
-        <%= f.label :visible %>
-        <%= f.check_box :visible, class: "form-control" %>
-      </div>
-      <div class="form-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <% if @podcast.new_record? %>
-          <%= f.submit( "Create new Podcast" ) %>
+          <h2>Create a new podcast:</h2>
         <% else %>
-          <%= f.submit( "Update Podcast" ) %>
+          <h2>Update "<%= @podcast.title %>":</h2>
         <% end %>
+        <%= link_to "&larr; Back to Podcasts".html_safe, admin_podcasts_path %>
       </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form-group">
+              <%= f.label :title %>
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description %>
+              <%= f.text_area :description, rows: 10, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :recording %>
+              <% if @podcast.recording.file? %>
+                <br>
+                File Name: <%= @podcast.recording_file_name %>
+                <%= render partial: "layouts/jplayer" %>
+              <% end %>
+              <%= f.file_field :recording %>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <%= f.label :main_image %>
+              <% if @podcast.main_image.file? %>
+              <%= image_tag @podcast.main_image.url( :thumb ) %><br/>
+              <% end %>
+              <%= f.file_field :main_image %>
+            </div>
+            <div class="form-group">
+              <%= f.label :secondary_image %>
+              <% if @podcast.secondary_image.file? %>
+              <%= image_tag @podcast.secondary_image.url( :thumb ) %><br/>
+              <% end %>
+              <%= f.file_field :secondary_image %>
+            </div>
+            <div class="form-group">
+              <%= f.label :release_date %>
+              <div class='input-group date' id='datetimepicker1'>
+                <%= f.text_field(
+                    :release_date,
+                    class: "form-control",
+                    id: "datetimepicker1",
+                    value: (
+                      @podcast.release_date.blank? ?
+                        '' : @podcast.release_date.strftime( '%Y-%m-%d %l:%M %p' )
+                    )
+                ) %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :twitter_hashtag %>
+              <div class="input-group">
+                <span class="input-group-addon">#</span>
+                <%= f.text_field :hashtag, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :visible %>
+              <%= f.check_box :visible, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="form-group">
+          <% if @podcast.new_record? %>
+            <%= f.submit(
+                  "Create new Podcast",
+                  class: "btn btn-bg btn-primary"
+            ) %>
+          <% else %>
+            <%= f.submit(
+                  "Update Podcast",
+                  class: "btn btn-bg btn-primary"
+            ) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
 
 <script type="text/javascript">
-$(function() {
-  $( ".datepicker" ).datepicker();
-});
+  $(document).ready( function () {
+    $( "#datetimepicker1" ).datetimepicker();
+
+    <% if @podcast.recording.file? %>
+      $("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+          $(this).jPlayer("setMedia", {
+            mp3: "<%= @podcast.recording.url %>"
+          });
+        },
+        swfPath: "/js",
+        supplied: "mp3",
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true,
+        remainingDuration: true,
+        toggleDuration: true
+      });
+    <% end %>
+  });
 </script>

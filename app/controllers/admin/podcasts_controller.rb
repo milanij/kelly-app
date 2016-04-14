@@ -19,8 +19,10 @@ class Admin::PodcastsController < ApplicationController
         }
       )
     else
+      errors = @podcast.errors.full_messages.join(", ")
+      flash.now[:error] = "Something went wrong!\n"\
+                          "Check these: #{errors}"
       render :new
-      flash.now[:error] = "Something went wrong! Try again."
     end
   end
 
@@ -38,16 +40,19 @@ class Admin::PodcastsController < ApplicationController
   def update
     @podcast = Podcast.find( params[:id] )
 
+    logger.error("HOLY BALLS: #{params[:release_date]}")
+
     if @podcast.update( podcast_params )
       redirect_to(
         admin_podcasts_path,
         flash: {
-          success: "You updated the \"#{@podcast.title}\" podcast. "
+          success: "You updated the \"#{@podcast.title}\" podcast."
         }
       )
     else
-      render :edit
-      flash.now[:error] = "Something went wrong! Try again."
+      errors = @post.errors.full_messages.join(", ")
+      flash.now[:error] = "Something went wrong!\n"\
+                          "Check these: #{errors}"
     end
   end
 
@@ -56,6 +61,7 @@ class Admin::PodcastsController < ApplicationController
   def podcast_params
     params.require( :podcast ).permit(
       :description,
+      :hashtag,
       :main_image,
       :recording,
       :release_date,
