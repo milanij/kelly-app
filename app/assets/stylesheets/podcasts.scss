@@ -4,6 +4,46 @@
   padding: 22px;
 }
 
+.body-content {
+  background-color: #b20000;
+}
+
+.container-background {
+  background-color: #b20000;
+}
+
+.banner-img {
+  display: block;
+  max-width: 100%;
+  height: 300px;
+}
+
+.social-nav {
+  margin-top: 10px;
+}
+
+.podcast-index-link {
+  color: black;
+}
+
+.podcast-index-link:hover {
+  text-decoration: none;
+  color: #b20000;
+}
+
+.podcast-social-link {
+  color: black;
+}
+
+.podcast-social-link:hover {
+  text-decoration: none;
+  color: #b20000;
+}
+
+.podcast-title {
+  font-size: 1em;
+}
+
 .facebook-btn {
   color: #3b5998;
 }

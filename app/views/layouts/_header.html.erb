@@ -1,14 +1,23 @@
-<div class="myNav" id="myNavbar">
-  <div class="row">
-    <div class="col-md-12">
-      <ul class="list-inline text-center">
-        <li><%= link_to "About", root_path, class: "" %></li>
-        <li><%= link_to "News", "/news", class: "" %></li>
-        <li><%= link_to "Calendar", "/calendar", class: "" %></li>
-        <li><%= link_to "Photos", "/photos", class: "" %></li>
-        <li><%= link_to "Videos", "/videos", class: "" %></li>
-        <li><%= link_to "Contact", "/contact", class: "" %></li>
-      </ul>
+<div id="navbar">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid header-bg">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <%= image_tag(
+              "tao-of-comedy-logo",
+              height: 250,
+              witdth: 250
+              )
+            %>
+          </div>
+          <div class="col-md-7 pull-left">
+            <h1>The Tao of Comedy Podcast</h1>
+            <h3>With Kelly MacLean</h3>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

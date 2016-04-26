@@ -24,9 +24,9 @@ Rails.application.routes.draw do
     to: "pages#news",
     as: :news_path
 
-  get "/calendar",
-    to: "pages#calendar",
-    as: :calendar_path
+  get "/about",
+    to: "pages#about",
+    as: :about_path
 
   get "/photos",
     to: "pages#photos",

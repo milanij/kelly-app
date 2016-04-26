@@ -29,10 +29,16 @@ html, body {
   min-height: 100%;
 }
 
+.header-bg {
+
+}
+
 #main {
   overflow: auto;
   padding-bottom: 100px;
+  padding-top: 200px;
   margin-top: 50px;
+  background-color: white;
 }  /* must be same height as the footer */
 
 #footer {
