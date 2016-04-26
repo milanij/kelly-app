@@ -10,7 +10,7 @@ class PodcastsController < ApplicationController
   end
 
   def show
-    @podcast = Podcast.find( params[:id] )
+    @podcast = Podcast.find_by_slug( params[:id] )
   end
 
 end

@@ -1,4 +1,7 @@
 class Podcast < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   has_attached_file :main_image,
                     styles: {
                       large: "600x600>",
