@@ -1,0 +1,21 @@
+@keyframes alertfadeOut {
+    0%  { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; transform: translateY(0px);}
+    99% { opacity: 0; top: 0px; transform: translateY(-30px);}
+    100% { opacity: 0; top: -72px; transform: translateY(0px); }
+}
+
+.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  margin: 0px auto;
+  box-shadow:
+  0 1px 1px rgba(0,0,0,0.1),
+  inset 0 1px 0 rgba(255,255,255,0.6);
+  animation: alertfadeOut 5s linear forwards;
+  line-height: 30px;
+}
