@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  *= require flash
- *= require jplayer/skin/jplayer.pink.flag
+ *= require jplayer-skin-premium-pixels-1.0.0/assets/css/style.css
+ *= require jplayer-skin-premium-pixels-1.0.0/assets/css/themicons.css
  */
 
 @import "bootstrap-sprockets";
@@ -36,8 +37,8 @@ html, body {
 #main {
   overflow: auto;
   padding-bottom: 100px;
-  padding-top: 200px;
-  margin-top: 50px;
+  // padding-top: 200px;
+  // margin-top: 50px;
   background-color: white;
 }  /* must be same height as the footer */
 

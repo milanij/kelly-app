@@ -1,0 +1,24 @@
+
+  $(document).ready( function () {
+    $("#jquery_jplayer_<%= i %>").jPlayer({
+      ready: function () {
+        $(this).jPlayer("setMedia", {
+          mp3: "<%= podcast.recording.url %>",
+          title: "<%= podcast.title %>"
+        });
+      },
+      play: function() { // To avoid multiple jPlayers playing together.
+        $(this).jPlayer("pauseOthers");
+      },
+      cssSelectorAncestor: "#jp_container_<%= i %>",
+      swfPath: "/js",
+      supplied: "mp3",
+      useStateClassSkin: true,
+      autoBlur: false,
+      smoothPlayBar: true,
+      keyEnabled: true,
+      remainingDuration: true,
+      toggleDuration: true
+    });
+  });
+

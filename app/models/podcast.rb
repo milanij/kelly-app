@@ -23,7 +23,15 @@ class Podcast < ActiveRecord::Base
                                     content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :secondary_image,
                                     content_type: /\Aimage\/.*\Z/
-  do_not_validate_attachment_file_type :recording
+  validates_attachment_content_type :recording,
+                                    content_type: [
+                                      'application/mp3',
+                                      'application/x-mp3',
+                                      'audio/mpeg',
+                                      ['audio/mpeg'],
+                                      'audio/mp3'
+                                    ],
+                                    message: 'File must be of filetype .mp3'
 
   validates :description,
           # :main_image,

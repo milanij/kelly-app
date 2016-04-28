@@ -5,35 +5,55 @@
 <div class="container-background">
   <div class="container">
     <div class="row body-content">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
+      <div class="col-md-10 col-md-offset-1">
         <ul class="list-group">
-          <% @podcasts.each do |podcast| %>
+          <% @podcasts.each_with_index do |podcast,i| %>
             <% if podcast.visible? %>
               <li class="list-group-item">
-                <h3>
-                  <%= link_to(
-                        podcast.title,
-                        podcast_path( podcast.slug ),
-                        class: "podcast-index-link",
-                        data: {
-                          podcast_title: podcast.title
+                <div class="row">
+                  <div class="col-md-8">
+                    <h3>
+                      <%= link_to(
+                            podcast.title,
+                            podcast_path( podcast.slug ),
+                            class: "podcast-index-link",
+                            data: {
+                              podcast_title: podcast.title
+                            }
+                      ) %>
+                    </h3>
+                    <span class="release-date">
+                      Release Date: <%= podcast.release_date.strftime( "%B %d, %Y" ) %>
+                    </span>
+                    <br>
+                    <span class="podcast-description">
+                      <%= podcast.description %>
+                    </span>
+                  </div>
+                  <div class="col-md-4">
+                    <%= render(
+                        partial: "layouts/jplayer",
+                        locals: {
+                          podcast: podcast,
+                          i: i
                         }
-                  ) %>
-                </h3>
-                <span class="release-date">
-                  Release Date: <%= podcast.release_date.strftime( "%m/%d/%y" ) %>
-                </span>
-                <br>
-                <span class="podcast-description">
-                  <%= podcast.description %>
-                </span>
+                    ) %>
+                  </div>
+                </div>
               </li>
+              <script>
+                <%= render(
+                  partial: 'podcasts/jplayer.js.erb',
+                  locals: {
+                    podcast: podcast,
+                    i: i
+                  }
+                ) %>
+              </script>
             <% end %>
           <% end %>
         </ul>
       </div>
-      <div class="col-md-1"></div>
     </div>
   </div>
 </div>

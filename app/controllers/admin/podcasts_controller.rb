@@ -50,7 +50,7 @@ class Admin::PodcastsController < ApplicationController
         }
       )
     else
-      errors = @post.errors.full_messages.join(", ")
+      errors = @podcast.errors.full_messages.join(", ")
       flash.now[:error] = "Something went wrong!\n"\
                           "Check these: #{errors}"
     end

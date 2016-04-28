@@ -1,23 +1,19 @@
 <div id="site-header">
-  <div
-    class="navbar navbar-fixed-top"
-    style="<%= 'padding-top: 70px' if current_user %>"
-  >
+  <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <div class="container-fluid header-bg">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-4">
+        <div class="row" style="<%= 'margin-top: 40px' if current_user %>">
+          <div class="col-md-3 col-md-offset-1">
             <%= image_tag(
-              "tao-of-comedy-logo",
-              height: 250,
-              witdth: 250
-              )
+                "tao-of-comedy-logo",
+                height: 250,
+                witdth: 250
+                )
             %>
           </div>
-          <div class="col-md-7 pull-left">
-            <h1>The Tao of Comedy Podcast</h1>
-            <h3>With Kelly MacLean</h3>
+          <div class="col-md-8 pull-left">
+            <h1 class="title">The Tao of Comedy Podcast</h1>
+            <h3 class="byline">With Kelly MacLean</h3>
           </div>
         </div>
       </div>
