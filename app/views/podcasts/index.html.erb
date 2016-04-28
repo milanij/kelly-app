@@ -12,11 +12,11 @@
               <li class="list-group-item">
                 <div class="row">
                   <div class="col-md-7">
-                    <h3>
+                    <h3 class="podcast-title">
                       <%= link_to(
                             podcast.title,
                             podcast_path( podcast.slug ),
-                            class: "podcast-index-link",
+                            class: "podcast-title-link",
                             data: {
                               podcast_title: podcast.title
                             }

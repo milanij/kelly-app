@@ -8,7 +8,7 @@
   background-color: transparent;
 }
 
-.title {
+.banner-title {
   font-family: trebuchet;
   font-weight: bold;
 }
@@ -34,7 +34,7 @@
   margin-top: 10px;
 }
 
-.podcast-index-link {
+.podcast-title-link {
   color: black;
 
   &:hover {
@@ -57,7 +57,7 @@
 }
 
 .podcast-title {
-  font-size: 1em;
+  margin: 0;
 }
 
 .facebook-btn {
