@@ -11,7 +11,7 @@
             <% if podcast.visible? %>
               <li class="list-group-item">
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                     <h3>
                       <%= link_to(
                             podcast.title,
@@ -27,10 +27,15 @@
                     </span>
                     <br>
                     <span class="podcast-description">
-                      <%= podcast.description %>
+                      <%= truncate(
+                          podcast.description,
+                          length: 70,
+                          separator: ' ',
+                          omission: "..."
+                      ) %>
                     </span>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-5">
                     <%= render(
                         partial: "layouts/jplayer",
                         locals: {
