@@ -9,7 +9,13 @@
       <h1><%= @podcast.title %></h1>
       <br>
       <% if @podcast.recording.file? %>
-        <%= render partial: "layouts/jplayer", locals: { podcast: @podcast } %>
+        <%= render(
+            partial: "layouts/jplayer",
+            locals: {
+              podcast: @podcast,
+              i: 1
+            }
+        ) %>
       <% end %>
       <br>
       <p>Release Date: <%= @podcast.release_date.strftime( "%m/%d/%y" ) %></p>
