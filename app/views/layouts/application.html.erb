@@ -22,9 +22,8 @@
 
     <div id="wrap">
       <%= render partial: "layouts/flash" %>
-      <%= render partial: "layouts/admin_header" %>
-      <%= render partial: "layouts/header" %>
       <div id="main">
+        <%= render partial: "layouts/admin_header" %>
         <%= yield %>
       </div>
     </div>
