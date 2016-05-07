@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require moment
-//= require bootstrap-datetimepicker
 //= require jquery_ujs
 //= require google_analytics_events
 //= require_tree .
