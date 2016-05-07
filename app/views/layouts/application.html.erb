@@ -22,7 +22,7 @@
 
     <div id="wrap">
       <%= render partial: "layouts/flash" %>
-      <div id="main">
+      <div id="main" style="<%= 'margin-top: 50px' if current_user %>">
         <%= render partial: "layouts/admin_header" %>
         <%= yield %>
       </div>

@@ -64,7 +64,6 @@
                 <%= f.text_field(
                     :release_date,
                     class: "form-control",
-                    id: "datetimepicker1",
                     value: (
                       @podcast.release_date.blank? ?
                         '' : @podcast.release_date.strftime( '%Y-%m-%d %l:%M %p' )
@@ -108,7 +107,11 @@
 
 <script type="text/javascript">
   $(document).ready( function () {
-    // $( "#datetimepicker1" ).datetimepicker();
+    $('#podcast_release_date').datepicker(
+      {
+        dateFormat: 'yy-mm-dd'
+      }
+    );
 
     <% if @podcast.recording.file? %>
       $("#jquery_jplayer_1").jPlayer({
