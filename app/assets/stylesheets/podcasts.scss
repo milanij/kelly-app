@@ -18,10 +18,10 @@
 }
 
 .container-background {
-  // background-color: #b20000;
+  background-color: #de0030;
   // background-image: url(https://s3.amazonaws.com/tao-of-comedy-production/flower-background.png);
   // background-image: url(https://s3.amazonaws.com/tao-of-comedy-production/black-red-lightening-bg.png);
-  background-image: url(https://s3.amazonaws.com/tao-of-comedy-production/royale-red-pattern.gif);
+  // background-image: url(https://s3.amazonaws.com/tao-of-comedy-production/royale-red-pattern.gif);
   // background-image: url(https://s3.amazonaws.com/tao-of-comedy-production/smile-frown-bg.png);
 }
 
@@ -60,6 +60,18 @@
 .podcast-title {
   margin: 0;
 }
+
+
+.odd {
+  background-color: #fafafa !important;
+}
+
+
+
+.even {
+  background-color: #f4f4f4 !important;
+}
+
 
 .facebook-btn {
   color: #3b5998;

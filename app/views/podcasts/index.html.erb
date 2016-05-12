@@ -9,7 +9,7 @@
         <ul class="list-group">
           <% @podcasts.each_with_index do |podcast,i| %>
             <% if podcast.visible? %>
-              <li class="list-group-item">
+              <li class="list-group-item <%= i % 2 == 0 ? 'odd' : 'even' %>">
                 <div class="row">
                   <div class="col-md-7">
                     <h3 class="podcast-title">
