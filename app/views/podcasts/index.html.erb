@@ -5,11 +5,11 @@
 <div class="container-background">
   <div class="container">
     <div class="row body-content">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
         <ul class="list-group">
           <% @podcasts.each_with_index do |podcast,i| %>
             <% if podcast.visible? %>
-              <li class="list-group-item <%= i % 2 == 0 ? 'odd' : 'even' %>">
+              <li class="list-group-item <%= i % 2 == 0 ? 'even' : 'odd' %>">
                 <div class="row">
                   <div class="col-md-7">
                     <h3 class="podcast-title">
