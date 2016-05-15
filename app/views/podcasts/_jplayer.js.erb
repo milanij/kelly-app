@@ -2,7 +2,7 @@ $(document).ready( function () {
   $("#jquery_jplayer_<%= i %>").jPlayer({
     ready: function () {
       $(this).jPlayer("setMedia", {
-        mp3: "<%= podcast.recording.url %>",
+        mp3: "<%= podcast.recording_url %>",
         title: "<%= podcast.title %>"
       });
     },

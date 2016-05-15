@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426182009) do
+ActiveRecord::Schema.define(version: 20160515220618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160426182009) do
     t.datetime "recording_updated_at"
     t.text     "hashtag"
     t.text     "slug"
+    t.text     "recording_url"
   end
 
   add_index "podcasts", ["slug"], name: "index_podcasts_on_slug", unique: true, using: :btree

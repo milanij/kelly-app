@@ -40,8 +40,6 @@ class Admin::PodcastsController < ApplicationController
   def update
     @podcast = Podcast.find( params[:id] )
 
-    logger.error("HOLY BALLS: #{params[:release_date]}")
-
     if @podcast.update( podcast_params )
       redirect_to(
         admin_podcasts_path,
@@ -63,7 +61,7 @@ class Admin::PodcastsController < ApplicationController
       :description,
       :hashtag,
       :main_image,
-      :recording,
+      :recording_url,
       :release_date,
       :secondary_image,
       :title,

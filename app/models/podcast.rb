@@ -34,8 +34,6 @@ class Podcast < ActiveRecord::Base
                                     message: 'File must be of filetype .mp3'
 
   validates :description,
-          # :main_image,
-          # :recording,
             :release_date,
             :title,
             presence: true

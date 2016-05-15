@@ -58,12 +58,12 @@
 </div>
 
 <script type="text/javascript">
-  <% if @podcast.recording.file? %>
+  <% if @podcast.recording_url.present? %>
     $(document).ready( function () {
       $("#jquery_jplayer_1").jPlayer({
         ready: function () {
           $(this).jPlayer("setMedia", {
-            mp3: "<%= @podcast.recording.url %>"
+            mp3: "<%= @podcast.recording_url %>"
           });
         },
         title: "<%= @podcast.title %>",
