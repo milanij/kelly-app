@@ -1,13 +1,15 @@
 author = "Kelly MacLean"
 image_url = "https://s3.amazonaws.com/tao-of-comedy-production/itunes_coverart.jpg"
-keywords = "comedy, meaning of life, taopodcast"
+# keywords = "comedy, spirituality, humor, comedians, comics, stand up, entertainment industry, grief, grieving, death, existentialism, philosophy, funny, religion, god, mindfulness"
+keywords = "comedy, spirituality, humor, comedians, comics, stand up, entertainment, grief, grieving, death, philosophy, funny, religion, mindfulness"
+description = "Following the sudden death of her beloved brother, host Kelly MacLean asks fellow comedians to aid her in an existential search for the of meaning of life. Hilarious and poignant, The Tao of Comedy exposes comedians as the sages they secretly are."
 
 xml.instruct! :xml, version: "1.0"
 xml.rss version: "2.0" do
   xml.channel do
     xml.title "The Tao of Comedy"
     xml.link "http://www.taopodcast.com"
-    xml.description "The Tao of Comedy Podcast with Kelly MacLean"
+    xml.description description
     xml.pubDate @podcasts.first.release_date.to_s(:rfc822)
     xml.lastBuildDate @podcasts.first.release_date.to_s(:rfc822)
     xml.language "en-us"
@@ -22,19 +24,20 @@ xml.rss version: "2.0" do
     xml.itunes :keywords, keywords
     xml.itunes :explicit, "yes"
     xml.itunes :image, href: image_url
+    xml.itunes :summary, description
 
     xml.itunes :owner do
       xml.itunes :name, author
       xml.itunes :email, 'kellymacleancomedy@gmail.com'
     end
 
-    # xml.itunes :category, text: 'Comedians' do
-    #   xml.itunes :category, text: 'Comdey'
-    # end
+    xml.itunes :category, text: 'Comedy' do
+      xml.itunes :category, text: 'Religion & Spirituality'
+    end
 
-    # xml.itunes :category, text: 'Comedy' do
-    #   xml.itunes :category, text: 'Comedians'
-    # end
+    xml.itunes :category, text: 'Religion & Spirituality' do
+      xml.itunes :category, text: 'Comedy'
+    end
 
     @podcasts.each do |podcast|
       xml.item do
