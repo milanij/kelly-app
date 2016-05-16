@@ -1,7 +1,7 @@
 author = "Kelly MacLean"
 image_url = "https://s3.amazonaws.com/tao-of-comedy-production/itunes_coverart.jpg"
 # keywords = "comedy, spirituality, humor, comedians, comics, stand up, entertainment industry, grief, grieving, death, existentialism, philosophy, funny, religion, god, mindfulness"
-keywords = "comedy, spirituality, humor, comedians, comics, stand up, entertainment, grief, grieving, death, philosophy, funny, religion, mindfulness"
+keywords = "comedy, spirituality, humor, comedians, comics, stand up, entertainment, grief, grieving, death, philosophy, funny, god, religion, mindfulness"
 description = "Following the sudden death of her beloved brother, host Kelly MacLean asks fellow comedians to aid her in an existential search for the of meaning of life. Hilarious and poignant, The Tao of Comedy exposes comedians as the sages they secretly are."
 
 xml.instruct! :xml, version: "1.0"
