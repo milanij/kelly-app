@@ -9,7 +9,7 @@ xml.rss version: "2.0" do
     xml.link "http://www.taopodcast.com"
     xml.description "The Tao of Comedy Podcast with Kelly MacLean"
     xml.pubDate @podcasts.first.release_date.to_s(:rfc822)
-    xml.lastBuildDate @episodes.first.published_at.to_s(:rfc822)
+    xml.lastBuildDate @podcasts.first.release_date.to_s(:rfc822)
     xml.language "en-us"
 
     xml.image do
