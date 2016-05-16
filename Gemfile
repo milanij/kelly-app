@@ -17,6 +17,7 @@ gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
 gem 'foreman', '~> 0.78'
 gem 'awesome_print', '~> 1.6'
 gem 'font-awesome-rails', '~> 4.4'
+gem 'dalli', '~> 2.7'
 
 gem 'jbuilder', '~> 2.0'
 

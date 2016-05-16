@@ -78,6 +78,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    dalli (2.7.6)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -211,6 +212,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3, >= 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
+  dalli (~> 2.7)
   devise!
   font-awesome-rails (~> 4.4)
   foreman (~> 0.78)
