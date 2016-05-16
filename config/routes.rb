@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get "/admin",
     to: redirect( "/users/sign_in" )
 
-  get "/rss",
+  get "/rss/podcasts",
     to: 'podcasts#index',
     as: :podcasts_rss,
     defaults: { format: 'rss' }
