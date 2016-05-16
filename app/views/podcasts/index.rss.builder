@@ -1,6 +1,6 @@
 author = "Kelly MacLean"
 image_url = "https://s3.amazonaws.com/tao-of-comedy-production/itunes_coverart.jpg"
-keywords = "comedy, meaning of life, "
+keywords = "comedy, meaning of life, taopodcast"
 
 xml.instruct! :xml, version: "1.0"
 xml.rss version: "2.0" do
