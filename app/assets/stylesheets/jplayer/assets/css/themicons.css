@@ -1,22 +1,11 @@
-<% if Rails.env.production? %>
-	@font-face {
-		font-family: "themicons";
-		src: url("#{Rails.root}/app/assets/stylesheets/jplayer/assets/fonts/themicons.woff2") format("woff2"),
-			url("#{Rails.root}/app/assets/stylesheets/jplayer/assets/fonts/themicons.woff") format("woff"),
-			url("#{Rails.root}/app/assets/stylesheets/jplayer/assets/fonts/themicons.ttf") format("truetype");
-		font-weight: normal;
-		font-style: normal;
-	}
-<% else %>
-	@font-face {
-		font-family: "themicons";
-		src: url("../fonts/themicons.woff2") format("woff2"),
-			url("../fonts/themicons.woff") format("woff"),
-			url("../fonts/themicons.ttf") format("truetype");
-		font-weight: normal;
-		font-style: normal;
-	}
-<% end %>
+@font-face {
+	font-family: "themicons";
+	src: url("../fonts/themicons.woff2") format("woff2"),
+		url("../fonts/themicons.woff") format("woff"),
+		url("../fonts/themicons.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
 
 .themicon {
 	display: inline-block;
