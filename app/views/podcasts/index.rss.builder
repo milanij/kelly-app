@@ -5,7 +5,7 @@ keywords = "comedy, spirituality, humor, comedians, comics, stand up, entertainm
 description = "Following the sudden death of her beloved brother, host Kelly MacLean asks fellow comedians to aid her in an existential search for the of meaning of life. Hilarious and poignant, The Tao of Comedy exposes comedians as the sages they secretly are."
 
 xml.instruct! :xml, version: "1.0"
-xml.rss version: "2.0" do
+xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:media" => "http://search.yahoo.com/mrss/",  :version => "2.0" do
   xml.channel do
     xml.title "The Tao of Comedy"
     xml.link "http://www.taopodcast.com"
