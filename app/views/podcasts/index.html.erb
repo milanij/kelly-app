@@ -1,11 +1,17 @@
-<div class="main-image-banner">
-  <%= image_tag("laughing_stretched_hero", class: "banner-img") %>
-</div>
+<% if mobile_device? %>
+  <div class="mobile-hero-banner">
+    <%= image_tag("mobile_hero", class: "img-responsive") %>
+  </div>
+<% else %>
+  <div class="main-image-banner">
+    <%= image_tag("hero_stretched", class: "banner-img") %>
+  </div>
+<% end %>
 <%= render partial: "social_nav" %>
 <div class="container-background">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row body-content">
-      <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
+      <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
         <ul class="list-group">
           <% @podcasts.each_with_index do |podcast,i| %>
             <% if podcast.visible? %>
