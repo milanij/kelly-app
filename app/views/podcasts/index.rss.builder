@@ -32,10 +32,10 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
     end
 
     xml.itunes :category, text: 'Comedy' do
-      xml.itunes :category, text: 'Religion & Spirituality'
+      xml.itunes :category, text: 'Religion and Spirituality'
     end
 
-    xml.itunes :category, text: 'Religion & Spirituality' do
+    xml.itunes :category, text: 'Religion and Spirituality' do
       xml.itunes :category, text: 'Comedy'
     end
 
