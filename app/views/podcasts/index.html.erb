@@ -12,22 +12,24 @@
   <div class="container-fluid">
     <div class="row body-content">
       <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
-        <ul class="list-group">
-          <% @podcasts.each_with_index do |podcast,i| %>
-            <% if podcast.visible? %>
-              <li class="list-group-item <%= i % 2 == 0 ? 'even' : 'odd' %>">
+        <% @podcasts.each_with_index do |podcast,i| %>
+          <% if podcast.visible? %>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h1 class="podcast-title">
+                  <%= link_to(
+                        podcast.title,
+                        podcast_path( podcast.slug ),
+                        class: "podcast-title-link",
+                        data: {
+                          podcast_title: podcast.title
+                        }
+                  ) %>
+                </h1>
+              </div>
+              <div class="panel-body">
                 <div class="row">
                   <div class="col-md-7">
-                    <h3 class="podcast-title">
-                      <%= link_to(
-                            podcast.title,
-                            podcast_path( podcast.slug ),
-                            class: "podcast-title-link",
-                            data: {
-                              podcast_title: podcast.title
-                            }
-                      ) %>
-                    </h3>
                     <span class="release-date">
                       Release Date: <%= podcast.release_date.strftime( "%B %d, %Y" ) %>
                     </span>
@@ -46,7 +48,7 @@
                     ) %>
                   </div>
                 </div>
-              </li>
+              </div>
               <script>
                 <%= render(
                   partial: 'podcasts/jplayer.js.erb',
@@ -56,9 +58,9 @@
                   }
                 ) %>
               </script>
-            <% end %>
+            </div>
           <% end %>
-        </ul>
+        <% end %>
       </div>
     </div>
   </div>
