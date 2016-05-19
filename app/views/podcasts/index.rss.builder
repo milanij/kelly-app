@@ -51,6 +51,11 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
         xml.itunes :subtitle, truncate(podcast.description, length: 150)
         xml.itunes :explicit, "yes"
         # xml.itunes :duration, "1:15"
+        xml.enclosure(
+          url: podcast.recording_url,
+          length: "104592532",
+          type: "audio/mpeg"
+        )
       end
     end
   end
