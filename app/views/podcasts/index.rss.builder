@@ -42,7 +42,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
     @podcasts.each do |podcast|
       xml.item do
         xml.title podcast.title
-        xml.link "http://www.taopodcast.com"
+        xml.link podcast.recording_url
         xml.description podcast.description
         xml.pubDate podcast.release_date.to_s(:rfc822)
         xml.guid podcast.recording_url
@@ -50,7 +50,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
         xml.itunes :summary, podcast.description
         xml.itunes :subtitle, truncate(podcast.description, length: 150)
         xml.itunes :explicit, "yes"
-        # xml.itunes :duration, podcast.duration
+        # xml.itunes :duration, "1:15"
       end
     end
   end
