@@ -31,24 +31,20 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
       xml.itunes :email, 'kellymacleancomedy@gmail.com'
     end
 
-    xml.itunes :category, text: 'Comedy' do
-      xml.itunes :category, text: 'Religion and Spirituality'
-    end
+    xml.itunes :category, text: 'Comedy'
 
-    xml.itunes :category, text: 'Religion and Spirituality' do
-      xml.itunes :category, text: 'Comedy'
-    end
+    xml.itunes :category, text: 'Religion & Spirituality'
 
     @podcasts.each do |podcast|
       xml.item do
         xml.title podcast.title
         xml.link podcast.recording_url
-        xml.description podcast.description
+        xml.description podcast.description.html_safe
         xml.pubDate podcast.release_date.to_s(:rfc822)
         xml.guid podcast.recording_url
         xml.itunes :author, author
-        xml.itunes :summary, podcast.description
-        xml.itunes :subtitle, truncate(podcast.description, length: 150)
+        xml.itunes :summary, podcast.description.html_safe
+        xml.itunes :subtitle, truncate(podcast.description.html_safe, length: 150)
         xml.itunes :explicit, "yes"
         # xml.itunes :duration, "1:15"
         xml.enclosure(
