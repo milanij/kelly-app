@@ -18,10 +18,7 @@
 }
 
 .container-background {
-  background-color: #de0030;
-  @media screen and (min-width: 900px) {
-    background-color: white;
-  }
+  background-color: white;
 }
 
 .banner-img {
@@ -60,6 +57,9 @@
   margin: 0;
 }
 
+.panel-body {
+  font-size: 14px;
+}
 
 .odd {
   background-color: #fafafa !important;
@@ -77,4 +77,10 @@
 }
 .mail-btn {
   color: gray;
+}
+
+@media screen and ( max-width: 700px ) {
+  .panel-body {
+    font-size: 24px;
+  }
 }
