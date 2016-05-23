@@ -17,14 +17,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h1 class="podcast-title">
-                  <%= link_to(
-                        podcast.title,
-                        podcast_path( podcast.slug ),
-                        class: "podcast-title-link",
-                        data: {
-                          podcast_title: podcast.title
-                        }
-                  ) %>
+                  <%= podcast.title %>
                 </h1>
               </div>
               <div class="panel-body">
