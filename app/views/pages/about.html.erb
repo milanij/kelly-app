@@ -1,0 +1,10 @@
+<% if mobile_device? %>
+  <div class="mobile-hero-banner">
+    <%= image_tag("mobile_hero", class: "img-responsive") %>
+  </div>
+<% else %>
+  <div class="main-image-banner">
+    <%= image_tag("ttoc_hero", class: "banner-img") %>
+  </div>
+<% end %>
+<%= render partial: "layouts/social_nav" %>
