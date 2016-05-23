@@ -15,3 +15,17 @@
 .bio-text {
   font-size: 14px;
 }
+
+.about-text {
+  font-size: 1.4em;
+  font-family: serif, helvetica;
+  .about-emphasis {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #006b80;
+    font-style: italic;
+    @media screen and ( max-width: 700px ) {
+      font-size: 1.3em;
+    }
+  }
+}
