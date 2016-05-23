@@ -4,7 +4,6 @@
 
 #about {
   background-color: #ffffff;
-
 }
 
 #myNavbar {
@@ -12,20 +11,24 @@
   font-family: "Cuprum", arial, serif;
 }
 
-.bio-text {
-  font-size: 14px;
-}
-
 .about-text {
   font-size: 1.4em;
   font-family: serif, helvetica;
-  margin: 20px 0 60px 0;
+  margin: 20px 0 40px 0;
   .about-emphasis {
     font-size: 1.6em;
     font-weight: bold;
     color: #006b80;
     font-style: italic;
   }
+}
+
+.kelly-and-andrew {
+  margin: 0 auto;
+}
+
+.caption {
+  margin: 0 0 40px 0;
 }
 
 @media screen and ( max-width: 700px ) {
