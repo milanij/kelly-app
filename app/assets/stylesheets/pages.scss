@@ -19,13 +19,21 @@
 .about-text {
   font-size: 1.4em;
   font-family: serif, helvetica;
+  margin: 20px 0 60px 0;
   .about-emphasis {
     font-size: 1.6em;
     font-weight: bold;
     color: #006b80;
     font-style: italic;
-    @media screen and ( max-width: 700px ) {
+  }
+}
+
+@media screen and ( max-width: 700px ) {
+  .about-text {
+    margin: 0 0 50px 0;
+    .about-emphasis {
       font-size: 1.3em;
     }
   }
 }
+
