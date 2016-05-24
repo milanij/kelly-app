@@ -1,5 +1,11 @@
 <div class="social-nav">
   <ul class="list-inline text-center">
+    <% unless params[:action] == "index" && params[:controller] == "podcasts" %>
+      <li>
+        <a class="podcast-social-link" href="/">Listen to Podcasts</a>
+      </li>
+      <li>|</li>
+    <% end %>
     <li>
       <a class="podcast-social-link" href="/about">About</a>
     </li>
