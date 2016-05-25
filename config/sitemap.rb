@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://www.kernel.com"
+SitemapGenerator::Sitemap.default_host = "https://www.taopodcast.com"
 
 # pick a place safe to write the files
 SitemapGenerator::Sitemap.public_path = 'tmp/'
@@ -12,5 +12,7 @@ SitemapGenerator::Sitemap.sitemaps_host =
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
-
+  add( "/" )
+  add( "/about" )
+  add( "/photos" )
 end
