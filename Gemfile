@@ -18,6 +18,10 @@ gem 'foreman', '~> 0.78'
 gem 'awesome_print', '~> 1.6'
 gem 'font-awesome-rails', '~> 4.4'
 gem 'dalli', '~> 2.7'
+gem 'delayed_job_active_record', '~> 4.1'
+gem 'delayed_job_recurring', '~> 0.3'
+gem 'net-sftp', '~> 2.1'
+gem 'sitemap_generator', '~> 5'
 
 gem 'jbuilder', '~> 2.0'
 
