@@ -59,6 +59,7 @@ class Admin::PodcastsController < ApplicationController
   def podcast_params
     params.require( :podcast ).permit(
       :description,
+      :file_size,
       :hashtag,
       :main_image,
       :recording_url,
