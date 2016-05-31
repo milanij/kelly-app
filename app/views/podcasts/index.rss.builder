@@ -36,8 +36,8 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
     xml.itunes :category, text: 'Religion & Spirituality'
 
     @podcasts.each do |podcast|
-      xml.item do
-        if podcast.visible?
+      if podcast.visible?
+        xml.item do
           xml.title podcast.title
           xml.link podcast.recording_url
           xml.description podcast.description.html_safe
