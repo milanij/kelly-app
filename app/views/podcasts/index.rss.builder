@@ -37,21 +37,23 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:m
 
     @podcasts.each do |podcast|
       xml.item do
-        xml.title podcast.title
-        xml.link podcast.recording_url
-        xml.description podcast.description.html_safe
-        xml.pubDate podcast.release_date.to_s(:rfc822)
-        xml.guid podcast.recording_url
-        xml.itunes :author, author
-        xml.itunes :summary, podcast.description.html_safe
-        xml.itunes :subtitle, podcast.description.html_safe
-        xml.itunes :explicit, "yes"
-        # xml.itunes :duration, "1:15"
-        xml.enclosure(
-          url: podcast.recording_url,
-          length: podcast.file_size,
-          type: "audio/mpeg"
-        )
+        if podcast.visible?
+          xml.title podcast.title
+          xml.link podcast.recording_url
+          xml.description podcast.description.html_safe
+          xml.pubDate podcast.release_date.to_s(:rfc822)
+          xml.guid podcast.recording_url
+          xml.itunes :author, author
+          xml.itunes :summary, podcast.description.html_safe
+          xml.itunes :subtitle, podcast.description.html_safe
+          xml.itunes :explicit, "yes"
+          # xml.itunes :duration, "1:15"
+          xml.enclosure(
+            url: podcast.recording_url,
+            length: podcast.file_size,
+            type: "audio/mpeg"
+          )
+        end
       end
     end
   end
