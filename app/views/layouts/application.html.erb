@@ -25,6 +25,11 @@
       <%= render partial: "layouts/flash" %>
       <div id="main" style="<%= 'margin-top: 50px' if current_user %>">
         <%= render partial: "layouts/admin_header" %>
+
+        <% if mobile_device? %>
+          <%= render partial: "layouts/header" %>
+        <% end %>
+
         <%= yield %>
       </div>
     </div>

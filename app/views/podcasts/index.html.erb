@@ -7,7 +7,9 @@
     <%= image_tag("ttoc_hero_b_fong", class: "banner-img") %>
   </div>
 <% end %>
-<%= render partial: "layouts/social_nav" %>
+<% unless mobile_device? %>
+  <%= render partial: "layouts/social_nav" %>
+<% end %>
 <div class="container-background">
   <div class="container-fluid">
     <div class="row body-content">
