@@ -7,11 +7,11 @@
     <%= image_tag("ttoc_hero_b_fong", class: "banner-img") %>
   </div>
 <% end %>
-<% unless mobile_device? %>
-  <%= render partial: "layouts/social_nav" %>
-<% end %>
+
 <div class="container-background">
   <div class="container-fluid">
+    <%= render partial: "layouts/header" %>
+
     <div class="row body-content">
       <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
         <% @podcasts.each_with_index do |podcast,i| %>
@@ -58,5 +58,6 @@
         <% end %>
       </div>
     </div>
+
   </div>
 </div>

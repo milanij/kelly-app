@@ -1,9 +1,18 @@
 @keyframes alertfadeOut {
-    0%  { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; transform: translateY(0px);}
-    99% { opacity: 0; top: 0px; transform: translateY(-30px);}
-    100% { opacity: 0; top: -72px; transform: translateY(0px); }
+  0%  { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; transform: translateY(0px);}
+  99% { opacity: 0; top: 0px; transform: translateY(-30px);}
+  100% { opacity: 0; top: -72px; transform: translateY(0px); }
+}
+
+.admin-navbar {
+  z-index: 10000;
+}
+
+.mobile-hero-banner {
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .alert {
@@ -16,6 +25,19 @@
   box-shadow:
   0 1px 1px rgba(0,0,0,0.1),
   inset 0 1px 0 rgba(255,255,255,0.6);
-  animation: alertfadeOut 5s linear forwards;
+  animation: alertfadeOut 4s linear forwards;
   line-height: 30px;
+}
+
+@media screen and ( min-width: 768px ) {
+// This only happens when screen is greater than 768px.
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
 }
