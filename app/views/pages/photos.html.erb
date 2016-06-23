@@ -1,10 +1,5 @@
 <% if mobile_device? %>
-  <div
-    class="mobile-hero-banner"
-    style="<%=
-      current_user ? 'margin-top: 50px;' : 'margin-top: 0;'
-    %>"
-  >
+  <div class="mobile-hero-banner">
     <%= image_tag("mobile_hero", class: "img-responsive") %>
   </div>
 <% else %>

@@ -4,8 +4,11 @@
       mobile_device? ? 'navbar-inverse navbar-fixed-top' : 'navbar-default'
     %>"
     style="margin-bottom: 0; <%=
-      mobile_device? ? '' : 'border-color: #fff;'
-      current_user ? 'margin-top: 50px;' : 'margin-top: 0;'
+      if mobile_device?
+        current_user ? 'margin-top: 50px;' : 'margin-top: 0;'
+      else
+        'border-color: #fff;'
+      end
     %>"
   >
     <div class="container-fluid">
