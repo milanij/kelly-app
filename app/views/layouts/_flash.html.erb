@@ -1,6 +1,6 @@
 <% flash.each do |key, value| %>
   <% if value.present? %>
-    <div class="alert alert-<%= key.to_s %>">
+    <div class="alert alert-<%= key.to_s %> <%= 'alert-admin' if current_user %>">
       <%= value %>
     </div>
   <% end %>
