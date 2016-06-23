@@ -1,72 +1,74 @@
-<nav
-  class="navbar <%=
-    mobile_device? ? 'navbar-inverse navbar-fixed-top' : 'navbar-default'
-  %>"
-  style="margin-bottom: 0; <%=
-    mobile_device? ? '' : 'border-color: #fff;'
-  %>"
->
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button
-        type="button"
-        class="navbar-toggle collapsed"
-        data-toggle="collapse"
-        data-target="#taoPodNav"
-        aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div
-      id="taoPodNav"
-      class="collapse navbar-collapse"
-      style="<%= 'margin-top: 30px' if current_user %>"
-    >
-      <ul class="nav navbar-nav">
-        <% unless params[:action] == "index" && params[:controller] == "podcasts" %>
+<div id="navbar-product">
+  <nav
+    class="navbar <%=
+      mobile_device? ? 'navbar-inverse navbar-fixed-top' : 'navbar-default'
+    %>"
+    style="margin-bottom: 0; <%=
+      mobile_device? ? '' : 'border-color: #fff;'
+      current_user ? 'margin-top: 50px;' : 'margin-top: 0;'
+    %>"
+  >
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#taoPodNav"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div
+        id="taoPodNav"
+        class="collapse navbar-collapse"
+      >
+        <ul class="nav navbar-nav">
+          <% unless params[:action] == "index" && params[:controller] == "podcasts" %>
+            <li>
+              <a class="navbar-link" href="/">Listen to Podcasts</a>
+            </li>
+          <% end %>
           <li>
-            <a class="navbar-link" href="/">Listen to Podcasts</a>
+            <a class="navbar-link" href="/about">About</a>
           </li>
-        <% end %>
-        <li>
-          <a class="navbar-link" href="/about">About</a>
-        </li>
-        <li>
-          <a
-            class="podcast-social-link"
-            href="http://kellymacleancomedy.com/"
-          >Kelly's Website</a>
-        </li>
-        <li>
-          <a class="navbar-link"href="/photos">Photos</a>
-        </li>
-        <li>
-          <a
-            class="navbar-link"
-            href="https://www.facebook.com/kellymacleancomedy/">
-            <i class="fa fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a class="navbar-link" href="https://twitter.com/thekellymaclean">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            class="navbar-link"
-            href="https://itunes.apple.com/us/podcast/the-tao-of-comedy/id1115517397"
-          ><i class="fa fa-music"></i></a>
-        </li>
-        <li>
-          <a
-            class="navbar-link"
-            href="http://www.stitcher.com/s?fid=90579&refid=stpr">Stitcher</a>
-        </li>
-      </ul>
+          <li>
+            <a
+              class="navbar-link"
+              href="http://kellymacleancomedy.com/"
+            >Kelly's Website</a>
+          </li>
+          <li>
+            <a class="navbar-link"href="/photos">Photos</a>
+          </li>
+          <li>
+            <a
+              class="navbar-link"
+              href="https://www.facebook.com/kellymacleancomedy/">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="navbar-link" href="https://twitter.com/thekellymaclean">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navbar-link"
+              href="https://itunes.apple.com/us/podcast/the-tao-of-comedy/id1115517397"
+            ><i class="fa fa-music"></i></a>
+          </li>
+          <li>
+            <a
+              class="navbar-link"
+              href="http://www.stitcher.com/s?fid=90579&refid=stpr">Stitcher</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>

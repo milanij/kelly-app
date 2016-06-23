@@ -6,12 +6,11 @@
   100% { opacity: 0; top: -72px; transform: translateY(0px); }
 }
 
-.admin-navbar {
-  z-index: 10000;
+#admin-navbar {
+  z-index: 100000;
 }
 
 .mobile-hero-banner {
-  margin-top: 50px;
   margin-bottom: 20px;
 }
 
@@ -27,6 +26,12 @@
   inset 0 1px 0 rgba(255,255,255,0.6);
   animation: alertfadeOut 4s linear forwards;
   line-height: 30px;
+}
+
+#navbar-product {
+  .navbar-toggle {
+    margin-right: 30px;
+  }
 }
 
 @media screen and ( min-width: 768px ) {
