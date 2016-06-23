@@ -354,7 +354,7 @@ figure {
 }
 .jp-audio {
   font-size: 25px;
-  font-size: 1.6rem;
+  /*font-size: 1.6rem;*/
   margin: 0 auto;
   max-width: 100%;
   padding: 0 1.25em;
@@ -378,7 +378,7 @@ figure {
   background-image: linear-gradient(#4a4c4d, #2b2d2d);
   border-radius: 3px 3px 0 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  height: 30px;
+  height: 50px;
   position: relative;
   width: 100%;
 }
@@ -404,7 +404,7 @@ figure {
   cursor: pointer;
   display: block;
   height: 30px;
-  margin: 0;
+  margin: 10px 0 0 0;
   outline: none;
   overflow: hidden;
   padding: 0;
@@ -456,7 +456,7 @@ figure {
   height: 1.875em;
   padding: 0.75em;
   position: relative;
-  width: calc(100% - 115px);
+  width: calc(100% - 180px);
 }
 .jp-time-rail:before,
 .jp-time-rail:after {
@@ -500,6 +500,7 @@ figure {
   -webkit-animation: progress-bar 0.75s linear infinite;
   animation: progress-bar 0.75s linear infinite;
 }
+
 /* jPlayer: Volume Bar
 ----------------------------------------------- */
 .jp-volume-bar {
@@ -507,7 +508,7 @@ figure {
   z-index: 99;
   position: relative;
   margin: 0.75em 0 0 -0.3125em;
-  width: 2.5em;
+  width: 2.8em;
   height: 0.4375em;
   cursor: pointer;
   background: #262929;
@@ -537,6 +538,19 @@ figure {
   background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 75%, transparent);
   background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 75%, transparent);
 }
+
+/* jPlayer: Time Holder
+----------------------------------------------- */
+.jp-time-holder {
+  font-size: 14px;
+}
+
+.jp-current-time, .jp-duration{
+  color: #fcc500;
+}
+
+
+
 /* jPlayer: Playlist
 ----------------------------------------------- */
 .jp-playlist {
@@ -605,9 +619,18 @@ figure {
   display: none;
   padding: 0;
 }
-@media (min-width: 480px) {
-  .jp-playlist {
-    width: 94%;
+
+/* Custom media query
+-------------------------------------------- */
+@media (max-width: 480px) {
+  .jp-current-time, .jp-duration {
+    font-size: 12px;
+  }
+  .jp-volume-bar {
+    width: 2.5em;
+  }
+  .jp-time-rail {
+    width: calc(100% - 110px);
   }
 }
 
