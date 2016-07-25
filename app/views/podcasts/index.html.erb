@@ -13,7 +13,7 @@
 <div class="container-background">
   <div class="container-fluid">
     <div class="row body-content">
-      <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
+      <div class="col-xs-12 col-md-9 col-md-offset-1 col-lg-10 col-lg-offset-0">
         <% @podcasts.each_with_index do |podcast,i| %>
           <% if podcast.visible? %>
             <div class="panel panel-default">
@@ -57,7 +57,30 @@
           <% end %>
         <% end %>
       </div>
+      <div class="hidden-xs hidden-sm col-md-2 col-lg-2 text-center">
+        Support <em>The Tao of Comedy</em> by using our Amazon portal:<br>
+        <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=11&l=ez&f=ifr&linkID=a5e4cdbc69d6957e322ceab4ed7cde37&t=taopodcast-20&tracking_id=taopodcast-20" width="120" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+      </div>
     </div>
-
+    <div class="row">
+      <div class="col-xs-12" id="amazon-portal">
+        <h3>Support <em>The Tao of Comedy</em> by using our Amazon portal:<br></h3>
+        <script type="text/javascript">
+        amzn_assoc_placement = "adunit0";
+        amzn_assoc_search_bar = "true";
+        amzn_assoc_tracking_id = "taopodcast-20";
+        amzn_assoc_search_bar_position = "top";
+        amzn_assoc_ad_mode = "search";
+        amzn_assoc_ad_type = "smart";
+        amzn_assoc_marketplace = "amazon";
+        amzn_assoc_region = "US";
+        amzn_assoc_title = "Search Results from Amazon";
+        amzn_assoc_default_search_phrase = "Kate Spade Earrings";
+        amzn_assoc_default_category = "All";
+        amzn_assoc_linkid = "bb363a2664546681c21b9be5cad2e4f4";
+        </script>
+        <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+      </div>
+    </div>
   </div>
 </div>
