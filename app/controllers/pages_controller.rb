@@ -8,10 +8,6 @@ class PagesController < ApplicationController
     render "about", layout: "layouts/application"
   end
 
-  def verify
-    render "0E0E4D821FCCEA72A5832F5CB7C0BAF9.txt", layout: false
-  end
-
   def news
     render "news", layout: "layouts/application"
   end
@@ -57,9 +53,7 @@ class PagesController < ApplicationController
       redirect_to '/donate'
       return
     else
-      render json: {
-        'success' => 'Your payment was successful! Thank you so much for your contribution to the Tao of Comedy! :) <3'
-      }, status: 200
+      render json: {}, status: 200
     end
   end
 

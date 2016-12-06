@@ -18,9 +18,6 @@ Rails.application.routes.draw do
 
   resources :podcasts
 
-  get "/0E0E4D821FCCEA72A5832F5CB7C0BAF9.txt",
-    to: 'pages#verify'
-
   get "/admin",
     to: redirect( "/users/sign_in" )
 

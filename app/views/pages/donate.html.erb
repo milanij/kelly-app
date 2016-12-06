@@ -32,6 +32,25 @@
   </div>
 </div>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Thank You!!!!!</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Your payment was successful! Thank you so much for your contribution to the Tao of Comedy! :)
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   var handler = StripeCheckout.configure({
     key: "<%= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>",
@@ -45,8 +64,9 @@
         dataType: 'json',
         url: '/donate/process',
         data: token
-      }).done(function(r){
-        alert(r['success']);
+      }).done(function(){
+        $.noConflict();
+        $('#myModal').modal('show');
       });
     }
   });
