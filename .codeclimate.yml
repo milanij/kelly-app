@@ -1,0 +1,45 @@
+---
+engines:
+  brakeman:
+    enabled: false
+  bundler-audit:
+    enabled: true
+  csslint:
+    enabled: true
+  coffeelint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+  eslint:
+    enabled: false
+  fixme:
+    enabled: false
+  rubocop:
+    enabled: false
+ratings:
+  paths:
+  - Gemfile.lock
+  - "**.erb"
+  - "**.haml"
+  - "**.rb"
+  - "**.rhtml"
+  - "**.slim"
+  - "**.css"
+  - "**.coffee"
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.php"
+  - "**.py"
+exclude_paths:
+- app/assets/datetimepicker
+- app/assets/jplayer-skin-premium-pixels-1.0.0
+- config/
+- db/
+- test/
+- vendor/
