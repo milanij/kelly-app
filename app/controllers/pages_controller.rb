@@ -1,35 +1,27 @@
-require "stripe"
+require 'stripe'
 
 class PagesController < ApplicationController
-
-  skip_before_action :verify_authenticity_token
+  layout 'layouts/application', except: [ :donate_process ]
 
   def about
-    render "about", layout: "layouts/application"
   end
 
   def news
-    render "news", layout: "layouts/application"
   end
 
   def calendar
-    render "calendar", layout: "layouts/application"
   end
 
   def photos
-    render "photos", layout: "layouts/application"
   end
 
   def videos
-    render "videos", layout: "layouts/application"
   end
 
   def contact
-    render "contact", layout: "layouts/application"
   end
 
   def donate
-    render "donate", layout: "layouts/application"
   end
 
   def donate_process
@@ -56,5 +48,4 @@ class PagesController < ApplicationController
       render json: {}, status: 200
     end
   end
-
 end
