@@ -1,5 +1,7 @@
 class Admin::PodcastsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_podcast, only: [ :show, :edit, :update ]
+
   def index
     @podcasts = Podcast.all.order( "created_at DESC" )
   end
@@ -27,19 +29,15 @@ class Admin::PodcastsController < ApplicationController
   end
 
   def show
-    @podcast = Podcast.find( params[:id] )
     redirect_to(
       edit_admin_podcast_path( @podcast )
     )
   end
 
   def edit
-    @podcast = Podcast.find( params[:id] )
   end
 
   def update
-    @podcast = Podcast.find( params[:id] )
-
     if @podcast.update( podcast_params )
       redirect_to(
         admin_podcasts_path,
@@ -55,6 +53,10 @@ class Admin::PodcastsController < ApplicationController
   end
 
   private
+
+  def find_podcast
+    @podcast = Podcast.find( params[:id] )
+  end
 
   def podcast_params
     params.require( :podcast ).permit(

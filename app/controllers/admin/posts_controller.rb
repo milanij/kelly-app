@@ -1,5 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_post
+
   def index
     @posts = Post.all.order( "created_at DESC" )
   end
@@ -27,19 +29,15 @@ class Admin::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find( params[:id] )
     redirect_to(
       admin_edit_post_path( @post )
     )
   end
 
   def edit
-    @post = Post.find( params[:id] )
   end
 
   def update
-    @post = Post.find( params[:id] )
-
     if @post.update(post_params)
       redirect_to(
         admin_posts_path,
@@ -56,6 +54,10 @@ class Admin::PostsController < ApplicationController
   end
 
   private
+
+  def find_post
+    @post = Post.find( params[:id] )
+  end
 
   def post_params
     params.require( :post ).permit(
