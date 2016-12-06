@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   resources :podcasts
 
+  get "/0E0E4D821FCCEA72A5832F5CB7C0BAF9.txt",
+    to: 'pages#verify'
+
   get "/admin",
     to: redirect( "/users/sign_in" )
 
@@ -33,6 +36,14 @@ Rails.application.routes.draw do
   get "/about",
     to: "pages#about",
     as: :about_path
+
+  get "/donate",
+    to: "pages#donate",
+    as: :donate_path
+
+  post "/donate/process",
+    to: 'pages#donate_process',
+    as: :donate_process
 
   get "/photos",
     to: "pages#photos",

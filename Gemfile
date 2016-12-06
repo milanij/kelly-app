@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.1'
 
 gem 'rails', '~> 5.0'
 gem 'pg', '~> 0.18'
@@ -11,9 +11,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0'
-gem 'paperclip', '~> 5.0.0.beta1'
+gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '>= 2.0.34'
-gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
+gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'foreman', '~> 0.78'
 gem 'awesome_print', '~> 1.6'
 gem 'font-awesome-rails', '~> 4.4'
@@ -22,24 +22,18 @@ gem 'delayed_job_active_record', '~> 4.1'
 gem 'delayed_job_recurring', '~> 0.3'
 gem 'net-sftp', '~> 2.1'
 gem 'sitemap_generator', '~> 5'
-
 gem 'jbuilder', '~> 2.0'
-
 gem 'friendly_id', '~> 5.0'
+gem 'nokogiri'
+gem 'stripe'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
