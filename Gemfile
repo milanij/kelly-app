@@ -27,7 +27,15 @@ gem 'friendly_id', '~> 5.0'
 gem 'nokogiri'
 gem 'stripe'
 
+group :test do
+  gem 'capybara', '~> 2.8'
+  gem 'database_cleaner', '~> 1.5'
+  gem 'webmock', '~> 2.1'
+  gem 'selenium-webdriver', '~> 2.53'
+end
+
 group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
   gem 'byebug'
 end
 
