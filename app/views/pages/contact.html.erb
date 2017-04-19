@@ -1,6 +1,22 @@
-<div class="container" id="contact">
-  <%= render partial: "layouts/header" %>
-  <div class="row">
+<% if mobile_device? %>
+  <div class="mobile-hero-banner">
+    <%= image_tag("mobile_hero", class: "img-responsive") %>
+  </div>
+<% else %>
+  <div class="main-image-banner">
+    <%= image_tag("ttoc_hero", class: "banner-img") %>
+  </div>
+<% end %>
 
+<%= render partial: "layouts/header" %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-offset-1 col-md-10">
+      <br><br>
+      <p class='text-center contact-label'>You can email us at: </p>
+      <p class='text-center contact-email'>taoofcomedy@gmail.com</p>
+      <br><br>
+    </div>
   </div>
 </div>
