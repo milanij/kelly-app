@@ -854,7 +854,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   awesome_print (~> 1.6)
-  aws-sdk (>= 2.0.34)
+  aws-sdk (~> 3)
   bootstrap-sass (~> 3.3, >= 3.3.6)
   capybara (~> 3)
   coffee-rails (~> 4.2.2)
