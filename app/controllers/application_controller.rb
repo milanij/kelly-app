@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def http_validate_ssl
-    render plain: 'pages/http_validate_ssl'
+    render plain: 'FC3BD8B5295761C0546741B892EDD9B3165BD36408932BA3D9AAA2C4EAFC3B44 comodoca.com 5df69e064e252'
   end
 
   # Mobile devices EXCLUDE iPad
