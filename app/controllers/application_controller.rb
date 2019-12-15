@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def http_validate_ssl
+    render plain: 'pages/http_validate_ssl'
+  end
+
   # Mobile devices EXCLUDE iPad
   def mobile_device?
     if session[:mobile_param]

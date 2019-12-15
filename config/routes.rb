@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 
+  get '/.well-known/pki-validation/',
+    to: 'application#http_validate_ssl'
+
   root to: "podcasts#index"
 
   resources :posts
