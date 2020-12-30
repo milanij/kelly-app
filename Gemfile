@@ -24,7 +24,7 @@ gem 'net-sftp', '~> 2.1'
 gem 'sitemap_generator', '~> 5'
 gem 'jbuilder', '~> 2.0'
 gem 'friendly_id', '~> 5.0'
-gem 'nokogiri', '~> 1.8'
+gem 'nokogiri', '~> 1.10'
 gem 'stripe', '~> 1'
 
 group :test do
