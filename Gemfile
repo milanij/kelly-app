@@ -3,7 +3,7 @@ ruby '2.6.3'
 
 gem 'rails', '~> 5.0'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.6'
+gem 'puma', '~> 4.3'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'autoprefixer-rails'
